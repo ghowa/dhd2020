@@ -1,11 +1,16 @@
 # Repository for the Workshop "Deep Learning and Visual Media", Tue 3 March 2020, DHd 2020
 ## Installation
 
+0. Clone this repository
+```
+git clone https://github.com/ghowa/dhd2020.git
+```
+
 1. Create virtual environment to make sure we don't mess with your system python install:
 ```
-python -m venv detectron2
-source detectron2/bin/activate
-pip install -r detectron2/requirements.txt
+python -m venv dhd2020
+source dhd2020/bin/activate
+pip install -r dhd2020/requirements.txt
 ```
 2. Install precompiled Detectron for CUDA 10.1:
 ```
@@ -17,7 +22,7 @@ pip install detectron2 -f https://dl.fbaipublicfiles.com/detectron2/wheels/cpu/i
 ```
 3. Create a new Jupyter kernel which uses the virtual environment you have just created:
 ```
-ipython kernel install --user --name=detectron2
+ipython kernel install --user --name=dhd2020
 ```
 4. Download Labelme2COCO converter and make it executable:
 ```
@@ -35,7 +40,7 @@ curl -JLO https://raw.githubusercontent.com/cocodataset/cocoapi/master/PythonAPI
 
 2. Enter directory
 ```
-cd detectron2
+cd dhd2020
 ```
 3. Run one of the following networks from Detectron's model zoo:
 ```
