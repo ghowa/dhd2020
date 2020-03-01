@@ -6,12 +6,15 @@ import os
 import time
 import cv2
 import tqdm
+import pickle
+
 
 from detectron2.config import get_cfg
 from detectron2.data.detection_utils import read_image
 from detectron2.utils.logger import setup_logger
 
 from predictor import VisualizationDemo
+from detectron2.data import MetadataCatalog
 
 # constants
 WINDOW_NAME = "COCO detections"
@@ -76,6 +79,10 @@ if __name__ == "__main__":
 
     cfg = setup_cfg(args)
 
+    output_pickle = {}
+    output_pickle['metadata'] = cfg.DATASETS.TRAIN[0]
+    output_pickle['predictions'] = {}
+
     demo = VisualizationDemo(cfg)
 
     if args.input:
@@ -87,6 +94,7 @@ if __name__ == "__main__":
             img = read_image(path, format="BGR")
             start_time = time.time()
             predictions, visualized_output = demo.run_on_image(img)
+            output_pickle['predictions'][path] = predictions
             logger.info(
                 "{}: {} in {:.2f}s".format(
                     path,
@@ -110,6 +118,8 @@ if __name__ == "__main__":
                 cv2.imshow(WINDOW_NAME, visualized_output.get_image()[:, :, ::-1])
                 if cv2.waitKey(0) == 27:
                     break  # esc to quit
+        with open('results.pkl', 'wb') as outfile:
+            pickle.dump(output_pickle, outfile)
     elif args.webcam:
         assert args.input is None, "Cannot have both --input and --webcam!"
         cam = cv2.VideoCapture(0)

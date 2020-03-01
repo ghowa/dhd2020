@@ -65,3 +65,11 @@ python demo.py --config-file lib/python3.7/site-packages/detectron2/model_zoo/co
 ## Annotate
 
 Enter own categories in labels.txt
+
+## Analyse
+
+Run Jupyter notebook
+```
+jupyter notebook
+```
+Open analyse.ipynb and make sure the 'dhd2020' kernel is used
