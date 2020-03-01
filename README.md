@@ -36,7 +36,7 @@ curl -JLO https://raw.githubusercontent.com/cocodataset/cocoapi/master/PythonAPI
 
 ## Try out pretrained models
 
-1. Copy your sample images to detectron2/input
+1. Copy your sample images to dhd2020/input
 
 2. Enter directory
 ```
