@@ -15,6 +15,8 @@ from detectron2.utils.logger import setup_logger
 
 from predictor import VisualizationDemo
 from detectron2.data import MetadataCatalog
+import pycocotools.mask as mask_util
+import numpy as np
 
 # constants
 WINDOW_NAME = "COCO detections"
@@ -67,6 +69,12 @@ def get_parser():
         default=[],
         nargs=argparse.REMAINDER,
     )
+    parser.add_argument(
+        "--skip-masks",
+        type=bool,
+        default=True,
+        help="If true, do not write masks to the output pickle file in order to make it much smaller."
+    )
     return parser
 
 
@@ -81,7 +89,8 @@ if __name__ == "__main__":
 
     output_pickle = {}
     output_pickle['metadata'] = cfg.DATASETS.TRAIN[0]
-    output_pickle['predictions'] = {}
+    output_pickle['classes'] = MetadataCatalog.get(cfg.DATASETS.TRAIN[0]).thing_classes
+    output_pickle['instances'] = {}
 
     demo = VisualizationDemo(cfg)
 
@@ -94,7 +103,8 @@ if __name__ == "__main__":
             img = read_image(path, format="BGR")
             start_time = time.time()
             predictions, visualized_output = demo.run_on_image(img)
-            output_pickle['predictions'][path] = predictions
+
+            output_pickle['instances'][path] = predictions['instances']
             logger.info(
                 "{}: {} in {:.2f}s".format(
                     path,
