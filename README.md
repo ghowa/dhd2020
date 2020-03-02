@@ -4,19 +4,24 @@
 0. Clone this repository and enter folder
 ```
 git clone https://github.com/ghowa/dhd2020.git
+```
+```
 cd dhd2020
 ```
 
 1. Create virtual environment to make sure we don't mess with your system python install and install all needed packages:
 ```
 python -m venv detectron2
-source detectron2/bin/activate
+```
+```
+source detectron2/bin/activate```
+```
+```
 pip install -r detectron2/requirements.txt
 ```
 2. Install precompiled Detectron with CPU support only:
 ```
 pip install detectron2 -f https://dl.fbaipublicfiles.com/detectron2/wheels/cpu/index.html
-
 ```
 OR: Install precompiled Detectron for CUDA 10.1:
 ```
@@ -29,6 +34,8 @@ ipython kernel install --user --name=detectron2
 4. Download Labelme2COCO converter and make it executable:
 ```
 curl -JLO https://raw.githubusercontent.com/wkentaro/labelme/master/examples/instance_segmentation/labelme2coco.py
+```
+```
 chmod 700 labelme2coco.py
 ```
 
@@ -53,7 +60,6 @@ python detectron2/demo.py --config-file detectron2/lib/python3.7/site-packages/d
 ```
 python detectron2/demo.py --config-file detectron2/lib/python3.7/site-packages/detectron2/model_zoo/configs/COCO-Keypoints/keypoint_rcnn_R_101_FPN_3x.yaml --input input/* --output output  --opts MODEL.DEVICE cpu MODEL.WEIGHTS detectron2://COCO-Keypoints/keypoint_rcnn_R_101_FPN_3x/138363331/model_final_997cc7.pkl
 ```
-
 ```
 python detectron2/demo.py --config-file detectron2/lib/python3.7/site-packages/detectron2/model_zoo/configs/LVIS-InstanceSegmentation/mask_rcnn_R_50_FPN_1x.yaml --input input/* --output output  --opts MODEL.DEVICE cpu MODEL.WEIGHTS  detectron2://LVIS-InstanceSegmentation/mask_rcnn_R_50_FPN_1x/144219072/model_final_571f7c.pkl
 ```
