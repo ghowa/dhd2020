@@ -14,7 +14,7 @@ cd dhd2020
 python -m venv detectron2
 ```
 ```
-source detectron2/bin/activate```
+source detectron2/bin/activate
 ```
 ```
 pip install -r detectron2/requirements.txt
