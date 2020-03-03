@@ -1,19 +1,23 @@
 # Repository for the Workshop "Deep Learning and Visual Media", Tue 3 March 2020, DHd 2020
 ## Installation
 
--1. https://medium.com/deepvisionguru/how-to-embed-detectron2-in-your-computer-vision-project-817f29149461
-
-Alternatively:
-
-0. Clone this repository and enter folder
+0. Clone this repository and enter folder (or download, extract and enter folder):
 ```
 git clone https://github.com/ghowa/dhd2020.git
 ```
 ```
 cd dhd2020
 ```
-
 1. Create virtual environment to make sure we don't mess with your system python install and install all needed packages:
+
+If you have a Conda python install, try this:
+```
+conda create --nsame detectron2
+```
+```
+conda activate detectron2
+```
+For vanilla python, try this:
 ```
 python -m venv detectron2
 ```
