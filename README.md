@@ -17,6 +17,8 @@ conda create --nsame detectron2
 ```
 conda activate detectron2
 ```
+Or try this: https://medium.com/deepvisionguru/how-to-embed-detectron2-in-your-computer-vision-project-817f29149461
+
 For vanilla python, try this:
 ```
 python -m venv detectron2
