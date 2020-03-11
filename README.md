@@ -1,6 +1,12 @@
 # Repository for the Workshop "Deep Learning and Visual Media", Tue 3 March 2020, DHd 2020
 ## Installation
 
+-1. Installing Detectron2 on **Linux** systems is pretty straightforward. 
+
+For **Windows 10**, a relatively easy solution is to install the Windows subsystem for Linux, instructions here: https://docs.microsoft.com/en-us/windows/wsl/install-win10. You will have to install the following packages as well (in the shell): python, python-dev and opencv-python.
+
+For **OS X**, you can try to follow the Anaconda instructions posted here: https://medium.com/deepvisionguru/how-to-embed-detectron2-in-your-computer-vision-project-817f29149461. Please note that this is not yet compatible with our demo.py script, we hope to fix that soon.
+
 0. Clone this repository and enter folder (or download, extract and enter folder):
 ```
 git clone https://github.com/ghowa/dhd2020.git
@@ -17,7 +23,7 @@ conda create --nsame detectron2
 ```
 conda activate detectron2
 ```
-Or try this: https://medium.com/deepvisionguru/how-to-embed-detectron2-in-your-computer-vision-project-817f29149461
+
 
 For vanilla python, try this:
 ```
